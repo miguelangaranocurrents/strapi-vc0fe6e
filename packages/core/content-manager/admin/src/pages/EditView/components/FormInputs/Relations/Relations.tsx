@@ -625,6 +625,10 @@ const RelationsInput = ({
        *
        */
       onChange(relation);
+
+      // The typed search only applied to the entry just picked; reset it so that reopening
+      // the dropdown lists the remaining relations rather than the stale filtered results.
+      setSearchParams((s) => ({ ...s, _q: '', page: 1 }));
     },
     [data, formatMessage, onChange, toggleNotification]
   );
